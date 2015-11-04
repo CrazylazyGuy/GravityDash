@@ -1,3 +1,4 @@
+
 //Creating an global variable of the paperToss object. Must only be done once
 
 var GravityDash = function () {};
@@ -7,6 +8,7 @@ GravityDash.Boot = function () {};
 GravityDash.Boot.prototype = {
     
     //adding methods to the class
+
     preload: function () {
         // use your own images;
         this.load.image('preloadBar', 'assets/images/preloader-bar.png');
