@@ -14,7 +14,7 @@ GravityDash.Game.prototype = {
     var spaceKey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
     spaceKey.onDown.add(this.jump, this); 
         this.add.text(16, 16, "Current State: Game.", { font: "16px Arial", fill: "#ffffff" });
-    },
+    }, 
     
     // Make the bird jump 
     jump: function() {  

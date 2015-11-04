@@ -1,4 +1,5 @@
 //Creating an global variable of the paperToss object. Must only be done once
+
 var GravityDash = function () {};
 
 GravityDash.Boot = function () {};
