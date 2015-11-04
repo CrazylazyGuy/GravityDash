@@ -19,6 +19,7 @@ GravityDash.Game.prototype = {
 
         // Set the new position of the pipe
         pipe.reset(x, y);
+        //meh
 
         // Add velocity to the pipe to make it move left
         pipe.body.velocity.x = -200; 
