@@ -1,47 +1,22 @@
-Template.Preload = function() {
-    this.ready=false;
+GravityDash.Preload = function (){};
 
-};
-
-Template.Preload.prototype = {
-    Preload: function() {
-        this.preload = this.add.sprite(this.game.world.centerX, this.game.world.centerY+ 128, "preloadBar");
-        this.preload.anchor.setTo(0.5);
+GravityDash.Preload.prototype = {
+    preload: function() {
+       //here you load all the game images and what not
+        //note to self you have to preload all the assets you want to use in the state before. Then you can actually use them. Cant use             them if you preload and create them in the same state.
+        this.load.image('background', 'assets/images/background.png');
+        this.load.image('backgroundGame', 'assets/images/backgroundGame.png');
         
-        this.load.setpreloadSprite(this.preloadBar);
-        
-        // here you load all the game images and what not
-        
-
-       
-        
-        //sprite hseets are dofferent
-        //(monicer, path,width og eaWch image, heigh of image, how many in sprite sheet
-       
-        
-        
-        // now lets load music
-        // (monicer,[array of music so that web browser will decide which to play)
-        
+        this.load.image('Pipe','assets/images/Pipe.png');
+     
     
-        
-        // loading bitmap fonts
-        this.load.onLoadComplete.add(this.onLoadComplete, this);
-       
-        
+        this.preloadBar = this.add.sprite(this.game.world.centerX, this.game.world.centerY+ 128, 'preloadBar');
+        this.preloadBar = this.preloadBar.anchor.setTo(0.5);
+        this.add.text(16, 16, "State: preload", { font: "16px Arial", fill: "#ffffff" }); 
     },
     create: function() {
-        console.log("preload bar is: "+this.preloadBar);
-        this.preloadBar.cropEnabled = true;   
-    },
-    
-    update: function() {
-        if(this.ready===true){
-            this.state.start('MainMenu');
-        }
-    },
-    
-    onLoadComplete: function(){
-        this.ready = true;
+        
+        this.state.start('MainMenu');
     }
+   
 };

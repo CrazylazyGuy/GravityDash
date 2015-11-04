@@ -1,17 +1,18 @@
-var Template = function () {};
-//template is that name of my file
+//Creating an global variable of the paperToss object. Must only be done once
+var GravityDash = {};
 
-Template.Boot = function () {};
+GravityDash.Boot = function () {};
 
-Template.Boot.prototype = {
+GravityDash.Boot.prototype = {
+    
+    //adding methods to the class
     preload: function () {
         // use your own images;
-
-        //this.load.image("logo", "assests/images/logo.png");
-        this.load.image("preloadBar", "assests/images/preloader-bar.png");
+        this.load.image('preloadBar', 'assets/images/preloader-bar.png');
 
     },
     create: function() {
+        
         this.game.stage.backgroundColor = "fff";
         
         //how many fingers/ clickers you want
@@ -33,7 +34,6 @@ Template.Boot.prototype = {
         // this a all the game configurations 
         // now begins the loading of the actual game assests
         //this commanf will move the game on to the next statea
-        console.log("about to go to preload");
         this.state.start('Preload');
     }
 };
