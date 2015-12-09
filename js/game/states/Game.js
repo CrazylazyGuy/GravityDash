@@ -31,10 +31,8 @@ GravityDash.Game.prototype = {
     jump: function() {  
         // Add a vertical velocity to the bird
         if(this.flip==false){
-        this.flappy.body.velocity.y = -350;
-        }else{
-            console.log("this is happen");
-            console.log("this is happen");
+            this.flappy.body.velocity.y = -350;
+        }else if(this.flip==true){
             this.flappy.body.velocity.y = 350;
         }
             
@@ -61,8 +59,7 @@ GravityDash.Game.prototype = {
 
         update: function() {
             this.game.physics.arcade.overlap(this.flappy, this.pipes, this.hitPipe, null, this); 
-            //this.hitPipe();
-                  // If the bird is out of the world (too high or too low), call the 'restartGame' function
+            
             if (this.flappy.inWorld == false){
                 this.restartGame(); 
             }
@@ -98,7 +95,7 @@ GravityDash.Game.prototype = {
 
         // Add velocity to the pipe to make it move left
        if( this.flip==false){
-        pipe.body.velocity.x = -200; 
+            pipe.body.velocity.x = -200; 
        }else{
            pipe.body.velocity.x=200;
        }
@@ -111,27 +108,11 @@ GravityDash.Game.prototype = {
     addRowOfPipes: function() {
         //pick where the hole will be
         var hole = Math.floor(Math.random() * 5) + 1;
+        // Add the 6 pipes 
+        for (var i = 0; i < 6; i++)
+            if (i != hole && i != hole + 1) 
+                this.addOnePipe(this.game.width, i * 112 ); 
         
-        //add the 6 pipes
-        for (var i = 0; i < 6; i++){
-            if (i != hole && i != hole + 1){
-                this.addOnePipe(800, i * 120 + 50);
-            }
-            else if(i != hole && i != hole + 1){
-                this.addOnePipe(-800, i * 120 + 50);
-            }
-                
-            this.score += 1;  
-            this.labelScore.text = this.score;
-        }
-    },
-
-    
-    // Make the bird jump 
-    jump: function() {  
-    // Add a vertical velocity to the bird
-    this.flappy.body.velocity.y = -350;
-    if (this.flappy.alive == false)  
-        return; 
     }
 }
+    
